@@ -65,11 +65,11 @@ def reg():
         time.sleep(0.2)
 
         print_email = driver.find_element(By.XPATH, "//input[@placeholder='Электронная почта или телефон']")
-        print_email.send_keys("anastasiyanesterenko@icloud.com")  # 1) your login
+        print_email.send_keys(" ")  # 1) your login
         time.sleep(0.2)
 
         print_email = driver.find_element(By.XPATH, "//input[@placeholder='Пароль']")
-        print_email.send_keys("XMLmyOK2004")  # 2) your password
+        print_email.send_keys(" ")  # 2) your password
         time.sleep(0.2)
 
         email_xpath = "//div[@class='account-login-actions']/button[@class='bloko-button bloko-button_kind-primary']"
