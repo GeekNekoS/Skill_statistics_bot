@@ -7,4 +7,4 @@
 2) В файле make_skils_statistics.py хранится скрипт, собирающий все слова встречающиеся в описании 
 вакансии и структурирующий данные в defaultdict, где ключ: слово, значение: сколько раз встречалось.
 
-## ! Файл find_salary_in_all_currencies.py в дериктории average_salary в разработке
+## ! Файл find_salary_in_all_currencies.py из папки average_salary в разработке
