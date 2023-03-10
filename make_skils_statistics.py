@@ -1,5 +1,6 @@
 import time
 import datetime
+from urls import *
 from selenium import webdriver
 from collections import defaultdict
 from selenium.webdriver.common.by import By
@@ -7,23 +8,9 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 
-def QA_Automation_Python():
-    search = "https://hh.ru/search/vacancy?"
-    text = "text=Qa+automation+Python"
-    url = search + text + "&salary=&ored_clusters=true&enable_snippets=true"
-    return url, 4, "QA_Automation_Python"
-
-
-def QA_manual():
-    search = "https://hh.ru/search/vacancy?"
-    search_f = "search_field=name&search_field=company_name&search_field=description"
-    url = search + search_f + "&enable_snippets=true&text=Manual+qa&from=suggest_post"
-    return url, 5, "QA_manual"
-
-
 def saving(file_name):
     now = datetime.datetime.now().strftime('%Y-%m-%d %H-%M-%S')
-    with open(f"{file_name} [{now}].txt", "w", encoding="utf-8") as file:
+    with open(f"skils_statistics_reports/{file_name} [{now}].txt", "w", encoding="utf-8") as file:
         ans = list(D.items())
         ans.sort(key=lambda x: x[1], reverse=True)
 
@@ -84,7 +71,7 @@ def reg():
 
 
 def parse():
-    url, max_page, file_name = QA_manual()
+    url, max_page, file_name = qa_middle()
 
     global D
     D = defaultdict(int)
