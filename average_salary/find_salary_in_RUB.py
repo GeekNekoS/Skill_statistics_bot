@@ -29,7 +29,7 @@ def parse():
     driver = webdriver.Chrome()
     get_connect("https://hh.ru/")
 
-    url, max_page, file_name = qa_middle()
+    url, max_page, file_name = etl()  # qa_middle()
     total_amount = []
 
     for page in range(1, max_page + 1):
