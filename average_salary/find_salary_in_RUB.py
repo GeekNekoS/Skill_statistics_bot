@@ -29,7 +29,7 @@ def parse():
     driver = webdriver.Chrome()
     get_connect("https://hh.ru/")
 
-    url, max_page, file_name = qa_middle()
+    url, max_page, file_name = etl()  # qa_middle()
     total_amount = []
 
     for page in range(1, max_page + 1):
@@ -61,11 +61,6 @@ def parse():
 
                     num_2 = int(split[3] + split[4])
                     total_amount.append(num_2)
-
-            else:
-                print(f"Не руб: {money_text}")  # всё должно уходить в if и elif
-                # 600 – 1 200 USD
-                # 300 – 450 USD
 
     print(f"Всего: {sum(total_amount)}")
     print(f"Среднее: {int(sum(total_amount)/len(total_amount))}")  # примерно 145000 руб

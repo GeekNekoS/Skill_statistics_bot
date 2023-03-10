@@ -35,42 +35,11 @@ def get_connect(url, retry=3):
         return driver.get(url=url)
 
 
-def reg():
-    url = "https://hh.ru/login"
-
+def parse():
     global driver
     driver = webdriver.Chrome()
-    # driver.maximize_window()
+    get_connect("https://hh.ru/")
 
-    try:
-        get_connect(url)
-        time.sleep(1)
-
-        log_in_button_xpath = "//div[@class='account-login-actions']/button[@class='bloko-link bloko-link_pseudo']"
-        log_in_button = driver.find_element(By.XPATH, log_in_button_xpath)
-        log_in_button.click()
-        time.sleep(0.2)
-
-        print_email = driver.find_element(By.XPATH, "//input[@placeholder='Электронная почта или телефон']")
-        print_email.send_keys(" ")  # 1) your login
-        time.sleep(0.2)
-
-        print_email = driver.find_element(By.XPATH, "//input[@placeholder='Пароль']")
-        print_email.send_keys(" ")  # 2) your password
-        time.sleep(0.2)
-
-        email_xpath = "//div[@class='account-login-actions']/button[@class='bloko-button bloko-button_kind-primary']"
-        print_email = driver.find_element(By.XPATH, email_xpath)
-        print_email.click()
-        time.sleep(0.2)
-
-        # time.sleep(30)  # ручное заполнение проверки на бота
-
-    except Exception as exception:
-        print(f"\033[38;5;{196}mWasted ψ(▼へ▼メ)\033[0;0m" + f"\n{exception}")
-
-
-def parse():
     url, max_page, file_name = qa_middle()
 
     global D
@@ -136,7 +105,6 @@ def parse():
 
 
 def main():
-    reg()
     parse()
 
 
